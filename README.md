@@ -1,60 +1,44 @@
-<p align="center">
-    <a href="https://github.com/yiisoft" target="_blank">
-        <img src="https://avatars0.githubusercontent.com/u/993323" height="100px">
-    </a>
-    <h1 align="center">Yii 2 Advanced Project Template</h1>
-    <br>
-</p>
-
-Yii 2 Advanced Project Template is a skeleton [Yii 2](http://www.yiiframework.com/) application best for
-developing complex Web applications with multiple tiers.
-
-The template includes three tiers: front end, back end, and console, each of which
-is a separate Yii application.
-
-The template is designed to work in a team development environment. It supports
-deploying the application in different environments.
-
-Documentation is at [docs/guide/README.md](docs/guide/README.md).
-
-[![Latest Stable Version](https://img.shields.io/packagist/v/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![Total Downloads](https://img.shields.io/packagist/dt/yiisoft/yii2-app-advanced.svg)](https://packagist.org/packages/yiisoft/yii2-app-advanced)
-[![build](https://github.com/yiisoft/yii2-app-advanced/workflows/build/badge.svg)](https://github.com/yiisoft/yii2-app-advanced/actions?query=workflow%3Abuild)
-
-DIRECTORY STRUCTURE
--------------------
-
-```
-common
-    config/              contains shared configurations
-    mail/                contains view files for e-mails
-    models/              contains model classes used in both backend and frontend
-    tests/               contains tests for common classes    
-console
-    config/              contains console configurations
-    controllers/         contains console controllers (commands)
-    migrations/          contains database migrations
-    models/              contains console-specific model classes
-    runtime/             contains files generated during runtime
-backend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains backend configurations
-    controllers/         contains Web controller classes
-    models/              contains backend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for backend application    
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-frontend
-    assets/              contains application assets such as JavaScript and CSS
-    config/              contains frontend configurations
-    controllers/         contains Web controller classes
-    models/              contains frontend-specific model classes
-    runtime/             contains files generated during runtime
-    tests/               contains tests for frontend application
-    views/               contains view files for the Web application
-    web/                 contains the entry script and Web resources
-    widgets/             contains frontend widgets
-vendor/                  contains dependent 3rd-party packages
-environments/            contains environment-based overrides
-```
+Описание
+ 
+Необходимо создать упрощенную версию новостного каталога.
+Пункты отмеченные курсивом являются не обязательными для выполнения, но их выполнение будет плюсом.
+Наш каталог будет содержать 2 вида объектов:
+	• Новость
+	• Рубрика
+Новость
+Представляет собой объект новости и должен содержать следующую информацию:
+ 	• Заголовок
+	• Текст
+	• Может относиться к нескольким рубрикам
+Рубрика
+ Рубрики позволяют классифицировать новостные материалы в каталоге. Имеют название и могут в древовидном виде вкладываться друг в друга. В простом случае реализации уровень вложенности будет 2-3 рубрики, в сложном - произвольный. Вот пример возможных рубрик и их иерархии:
+ 	• Общество
+    	◦ городская жизнь
+    	◦ выборы
+	• День города
+   	 ◦ салюты
+    	◦ детская площадка
+        	▪ 0-3 года
+        	▪ 3-7 года
+	• Спорт
+……
+Функции каталога
+ Взаимодействие с пользователем происходит посредством HTTP запросов к API серверу. Все ответы представляют собой JSON объекты. Сервер реализует следующие методы:
+ 	• выдача списка всех новостей, которые относятся к указанной рубрике, включая дочерние
+Дополнительное задание (необязательно):
+	•  выдача списка всех рубрик, с дочерними, с учетом произвольного уровня вложенности
+   Задание
+Формат маршрутов для доступа к методам, а также формат ответа и запросов мы предоставляем Вам реализовать и выбрать самим.
+ 1. Спроектировать базу данных и развернуть ее при помощи миграций
+2. Выполнить конфигурацию веб-сервера (любого)
+3. Реализовать API согласно ТЗ
+4. Опубликовать/развернуть приложение, предоставить нам ссылки по которым можно протестировать работу сервиса: выложить работающее приложение на любой хостинг, а код на публичный репозиторий.
+ 
+Если у Вас есть желание продемонстрировать знание какой-то технологии или подхода, то можно реализовать произвольную дополнительную функциональность на Ваше усмотрение.
+Используемые технологии
+        	
+При выполнении задания требуется использовать следующие технологии:
+	• язык программирования PHP
+	• для реализации использовать фреймворк Yii2
+	• система контроля версий - Git
+	• база данных MongoDB или Mysql
