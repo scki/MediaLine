@@ -15,6 +15,12 @@ class RubricsController extends Controller
             return Rubrics::find()->all();
         }
 
+        if (!$rubric = Rubrics::findOne($idRubric)) {
+            return  [
+                'message' => 'Новостей с данной рубрикой не найдено',
+            ];
+        }
+
         $rubricIds = Rubrics::getAllChildId($idRubric);
         $rubricsNewses = RubricNews::getNewsIdsByRubricIds($rubricIds);
 
